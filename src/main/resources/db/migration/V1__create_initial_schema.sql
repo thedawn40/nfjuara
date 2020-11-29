@@ -1,0 +1,3 @@
+create table todos (id int unsigned auto_increment primary key, name varchar(50) not null, is_finished tinyint(1) not null default 0, is_active tinyint(1) not null default 1, created_at timestamp not null default now(), updated_at timestamp not null default now());
+create table tags (id int unsigned auto_increment primary key, name varchar(50) not null, is_active tinyint(1) not null default 1, created_at timestamp not null default now(), updated_at timestamp not null default now());
+create table todos_tags (todo_id int unsigned not null, tags_id int unsigned not null, foreign key (todo_id) references todos(id), foreign key (tags_id) references tags(id));
